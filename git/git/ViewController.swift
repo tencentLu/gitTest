@@ -16,6 +16,8 @@ class ViewController: UIViewController {
       let a =  self.bubble_Sort(a: [3,5,2,1,6,4])
         
         print(a)
+        
+        self.qickerSort(left: 0, right: 5);
      
     }
 
@@ -39,7 +41,44 @@ class ViewController: UIViewController {
         }
         return a
     }
+    
+    func Quicksort(a:[Int]){
+ 
+        
+    }
 
+    func qickerSort(left: Int, right: Int) {
+      var numbersArray = [1,4,6,5,8,2]
+        
+        var i,j,pivot: Int
+        if left > right {
+            
+            return
+        }
+        pivot = numbersArray[left]
+        i = left
+        j = right
+        while i != j {
+            while numbersArray[j] >= pivot && i < j {
+                j -= 1
+            }
+            while numbersArray[i] <= pivot && i < j {
+                i += 1
+            }
+            if i < j {
+                numbersArray.swapAt(i, j)
+            }
+        }
+        
+        numbersArray[left] = numbersArray[i];
+        numbersArray[i] = pivot
+      
+        qickerSort(left: left, right: i-1)
+        qickerSort(left: i+1, right: right)
+        
+        
+
+    }
 
 }
 
